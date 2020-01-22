@@ -1,0 +1,84 @@
+gopm解决golang国内无法go get获取第三方包的问题
+
+gopm介绍
+提供go依赖包的下载工具
+
+gopm地址
+官方地址：https://gopm.io
+
+gopm安装
+go get -v github.com/gpmgo/gopm
+go install github.com/gpmgo/gopm
+1
+2
+gopm参数说明
+NAME:
+   Gopm - Go Package Manager
+
+USAGE:
+   Gopm [global options] command [command options] [arguments...]
+
+VERSION:
+   0.8.8.0307 Beta
+
+COMMANDS:
+   list         list all dependencies of current project
+   gen          generate a gopmfile for current Go project
+   get          fetch remote package(s) and dependencies
+   bin          download and link dependencies and build binary
+   config       configure gopm settings
+   run          link dependencies and go run
+   test         link dependencies and go test
+   build        link dependencies and go build
+   install      link dependencies and go install
+   clean        clean all temporary files
+   update       check and update gopm resources including itself
+   help, h      Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --noterm, -n         disable color output
+   --strict, -s         strict mode
+   --debug, -d          debug mode
+   --help, -h           show help
+   --version, -v        print the version
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+使用gopm get代替go get 其他参数和go get差不多，可以参考上面的参数说明
+
+gopm使用
+gopm get -g golang.org/x/sys
+1
+
+可以在GOPATH下看到我们下载到了 golang.org/x/sys 这个包，正常国内用go get是无法下载到该依赖包的，而gopm get却可以
+不采用-g参数，会把依赖包下载.vendor目录下面；
+采用-g 参数，会把依赖包下载到GOPATH目录中(建议使用)；
+————————————————
+版权声明：本文为CSDN博主「Samdom」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_36162966/article/details/90605065

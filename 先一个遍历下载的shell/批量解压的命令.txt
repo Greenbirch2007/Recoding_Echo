@@ -1,0 +1,37 @@
+
+
+
+$ ls | grep  "^mat*" | xargs -n1 unzip 
+
+
+$ ls | grep  "^mat*" | xargs -n1 rm (批量删除)
+
+
+
+ls | grep  ".master$" | xargs -n1 mv  /home/w/golang_ms
+
+
+把匹配到的文件夹复制或移动到另一个文件夹下
+
+1.cp +$()
+(可用) mv $(ls | grep  ".master$") /home/w/golang_ms
+
+方法2：find +|xargs -i
+find -type f -name "*.sh" | xargs -i cp {} /tmp
+1
+主要使用了xargs的 -i 参数 配合使用{} 完成要求
+
+方法3：find -exec
+find -type f -name "*.sh" -exec cp {} /tmp \;
+
+
+1
+使用了find 的 -exec参数 也是通过使用{} 完成要求
+
+方法4： find +|xargs cp -t
+find -type f -name "*.sh" | xargs cp -t /tmp
+1
+使用了cp的 -t 参数 作用：前后参数位置互换
+cp -t 目的地 来源地
+
+

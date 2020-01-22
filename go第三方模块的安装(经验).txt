@@ -1,0 +1,46 @@
+
+
+
+GOPATH="/home/w/go"
+GORACE=""
+GOROOT="/usr/lib/go-1.10"
+
+
+
+1.下载
+
+
+
+从github.com上直接下载
+比如， github.com/go-sql-driver/mysql    
+
+2. 解压到$GOPATH/src里面的路径(解压)
+
+3. 在$GOPATH/src目录里使用go build安装(安装)
+
+go install github.com/go-sql-driver/mysql 安装这个包
+
+4.在go文件里面 引入第三方库（导入）
+
+import (
+	"github.com/go-sql-driver/mysql" 
+)
+
+
+特别注意，
+(1)引入的项目go文件，必须也是在$GOPATH/src
+(2) 再有就是安装go build后面的路径
+(3) 实际上如果在$GOPATH/src/github.com的目录下去安装，
+导入时就是要用import "github.com/go-sql-driver/mysql"
+
+但是如果只在$GOPATH/src目录下取安装
+则导入时只需要import "go-sql-driver/mysql"
+
+或者只安装了mysql ，后面只需要导入import "mysql"即可
+
+写一个shell脚本批量安装即可！
+
+
+
+
+
